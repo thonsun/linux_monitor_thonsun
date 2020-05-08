@@ -3,9 +3,13 @@
 package main
 
 /*
+
 #include <linux/netlink.h>
 #include <linux/connector.h>
 #include <linux/cn_proc.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 struct __attribute__ ((aligned(NLMSG_ALIGNTO))) {
 	struct nlmsghdr nl_hdr;
@@ -16,7 +20,7 @@ struct __attribute__ ((aligned(NLMSG_ALIGNTO))) {
 } Nlcn_msg;
 
 memset(&Nlcn_msg, 0, sizeof(Nlcn_msg));
-Nlcn_msg.nl_hdr.nlmsg_len = sizeof(nlcn_msg);
+Nlcn_msg.nl_hdr.nlmsg_len = sizeof(Nlcn_msg);
 Nlcn_msg.nl_hdr.nlmsg_pid = getpid();
 Nlcn_msg.nl_hdr.nlmsg_type = NLMSG_DONE;
 
