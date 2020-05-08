@@ -3,7 +3,6 @@
 package main
 
 /*
-
 #include <linux/netlink.h>
 #include <linux/connector.h>
 #include <linux/cn_proc.h>
@@ -11,14 +10,15 @@ package main
 #include <stdlib.h>
 #include <stdio.h>
 
-struct __attribute__ ((aligned(NLMSG_ALIGNTO))) {
+typedef struct __attribute__ ((aligned(NLMSG_ALIGNTO))) {
 	struct nlmsghdr nl_hdr;
 	struct __attribute__ ((__packed__)) {
 		struct cn_msg cn_msg;
 		enum proc_cn_mcast_op cn_mcast;
 	};
-} Nlcn_msg;
+} A;
 
+A Nlcn_msg;
 memset(&Nlcn_msg, 0, sizeof(Nlcn_msg));
 Nlcn_msg.nl_hdr.nlmsg_len = sizeof(Nlcn_msg);
 Nlcn_msg.nl_hdr.nlmsg_pid = getpid();
@@ -53,7 +53,7 @@ func main() {
 		log.Printf("bind to addr failed:%+v",err)
 		syscall.Close(fd)
 	}
-	log.Printf("%+v",C.Nlcn_msg)
+	log.Printf("%+v",&C.Nlcn_msg)
 	////msg := []byte{}
 	//msg := netlink.Message{
 	//	Header: netlink.Header{},
