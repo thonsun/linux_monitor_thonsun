@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9934409a-4e3e-4fd0-ba96-19323df314fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/netlink_monitor/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/netlink_monitor/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/netlink_monitor/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/netlink_monitor/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audit_monitor/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/audit_monitor/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +36,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -49,7 +48,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588919779509</updated>
-      <workItem from="1588919780963" duration="17315000" />
+      <workItem from="1588919780963" duration="18300000" />
+      <workItem from="1588995458137" duration="556000" />
+      <workItem from="1589030517592" duration="2250000" />
     </task>
     <servers />
   </component>
