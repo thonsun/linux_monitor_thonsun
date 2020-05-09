@@ -38,7 +38,7 @@ func read() error {
 	var err error
 	var client *libaudit.AuditClient
 
-	client, err = libaudit.NewAuditClient(os.Stdout)
+	client, err = libaudit.NewAuditClient(nil)
 	if err != nil {
 		return errors.Wrap(err, "failed to create audit client")
 	}
