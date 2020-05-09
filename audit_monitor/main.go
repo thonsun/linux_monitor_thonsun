@@ -79,7 +79,7 @@ func receive(r *libaudit.AuditClient) error {
 			continue
 		}
 
-		fmt.Printf("type=%v msg=%v\n", rawEvent.Type, string(rawEvent.Data))
+		fmt.Printf("type=%#v msg=%#v\n", rawEvent.Type, string(rawEvent.Data))
 	}
 }
 
