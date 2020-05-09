@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9934409a-4e3e-4fd0-ba96-19323df314fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/audit_monitor/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/audit_monitor/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/netlink_monitor/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/netlink_monitor/go.sum" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/netlink_monitor/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/netlink_monitor/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go Application" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -29,7 +31,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultGoTemplateProperty" value="Go Application" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -47,7 +49,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588919779509</updated>
-      <workItem from="1588919780963" duration="12920000" />
+      <workItem from="1588919780963" duration="17315000" />
     </task>
     <servers />
   </component>
@@ -66,5 +68,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="320" y="128" key="#Go_Modules_(vgo)/0.23.1440.877@0.23.1440.877" timestamp="1588919847800" />
+    <state x="450" y="417" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1588941351079">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="450" y="417" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1440.877@0.23.1440.877" timestamp="1588941351079" />
   </component>
 </project>
