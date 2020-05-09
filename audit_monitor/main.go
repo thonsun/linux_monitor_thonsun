@@ -4,9 +4,7 @@ import (
 	"fmt"
 	"github.com/elastic/go-libaudit/auparse"
 	"github.com/pkg/errors"
-	"io"
 	"log"
-	"log/syslog"
 	"os"
 	"github.com/elastic/go-libaudit"
 )
