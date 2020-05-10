@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/elastic/go-libaudit/auparse"
+	"github.com/elastic/go-libaudit/rule"
+	"github.com/elastic/go-libaudit/rule/flags"
 	"github.com/pkg/errors"
 	"log"
 	"os"
@@ -55,13 +57,9 @@ func read() error {
 
 	infolog("%s","start to set rules")
 	r := "-a always,exit -F arch=b64 -S execve"
-	if err := client.AddRule([]byte(r));err != nil{
-		return errors.Wrap(err,fmt.Sprintf("set rule %#v failed",r))
-	}
+	addRule(r,client)
 	r = "-w /sbin/insmod -p x -k module_insertion"
-	if err := client.AddRule([]byte(r));err != nil{
-		return errors.Wrap(err,fmt.Sprintf("set rule %#v failed",r))
-	}
+	addRule(r,client)
 
 	status, err := client.GetStatus()
 	if err != nil {
@@ -130,3 +128,12 @@ func receive(r *libaudit.AuditClient) error {
 	}
 }
 
+func addRule(ruleText string,client *libaudit.AuditClient) {
+	oneRule := "-a exit,always -F auid!=-1 -F arch=b64 -S execve -S bind -k wildcat "
+	ruleExec, _ := flags.Parse(oneRule)
+	binaryRule, _ := rule.Build(ruleExec)
+	infolog("%s","failed to build rule")
+	if err := client.AddRule(binaryRule); err != nil {
+		infolog("add audit rule %+v", err)
+	}
+}
