@@ -44,6 +44,14 @@ func read() error {
 	}
 	defer client.Close()
 
+	if rules,err := client.GetRules();err != nil{
+		return errors.Wrap(err, "failed to get rules")
+	}else {
+		for _,rule := range rules{
+			infolog("audit rules:%#v",rule)
+		}
+	}
+
 	status, err := client.GetStatus()
 	if err != nil {
 		return errors.Wrap(err, "failed to get audit status")
@@ -57,20 +65,11 @@ func read() error {
 		}
 	}
 
-
 	infolog("sending message to kernel registering our PID (%v) as the audit daemon", os.Getpid())
 	if err = client.SetPID(libaudit.NoWait); err != nil {
 		return errors.Wrap(err, "failed to set audit PID")
 	}
 
-	if rules,err := client.GetRules();err != nil{
-		return errors.Wrap(err, "failed to get rules")
-	}else {
-		for _,rule := range rules{
-			infolog("audit rules:%#v",rule)
-		}
-	}
-	
 	return receive(client)
 }
 
