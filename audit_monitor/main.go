@@ -114,14 +114,14 @@ func receive(r *libaudit.AuditClient) error {
 		switch rawEvent.Type {
 		case auparse.AUDIT_SYSCALL:
 			fmt.Printf("type=%#v %#s\n","SYSTEM CALL",string(rawEvent.Data))
-		case auparse.AUDIT_PATH:
-			fmt.Printf("type=%#v %#s\n","PATH",string(rawEvent.Data))
+		//case auparse.AUDIT_PATH:
+		//	fmt.Printf("type=%#v %#s\n","PATH",string(rawEvent.Data))
 		case auparse.AUDIT_SOCKETCALL:
 			fmt.Printf("type=%#v %#s\n","SYSTEM SOCKET",string(rawEvent.Data))
 		case auparse.AUDIT_CONFIG_CHANGE:
 			fmt.Printf("type=%#v %#s\n","SYSTEM CONFIG CHANGE",string(rawEvent.Data))
-		case auparse.AUDIT_CWD:
-			fmt.Printf("type=%#v %#s\n","CWD",string(rawEvent.Data))
+		//case auparse.AUDIT_CWD:
+		//	fmt.Printf("type=%#v %#s\n","CWD",string(rawEvent.Data))
 		case auparse.AUDIT_EXECVE:
 			fmt.Printf("type=%#v %#s\n","EXECUTE",string(rawEvent.Data))
 		case auparse.AUDIT_KERNEL_OTHER:
