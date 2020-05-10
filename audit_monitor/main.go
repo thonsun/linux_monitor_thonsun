@@ -101,9 +101,13 @@ func receive(r *libaudit.AuditClient) error {
 			fmt.Printf("type=%#v %#s\n","EXECUTE",string(rawEvent.Data))
 		case auparse.AUDIT_KERNEL_OTHER:
 			fmt.Printf("type=%#v %#s\n","KERNEL_OTHER",string(rawEvent.Data))
+		// other type
+		case auparse.AUDIT_FD_PAIR:
+			fmt.Printf("type=%#v %#s\n","AUDIT_FD_PAIR",string(rawEvent.Data))
+		case auparse.AUDIT_NETFILTER_PKT:
+			fmt.Printf("type=%#v %#s\n","AUDIT_NETFILTER_PKT",string(rawEvent.Data))
 		default:
-			fmt.Printf("%s\n","[+]other msg")
-			continue
+			fmt.Printf("%s\n","other")
 		}
 	}
 }
