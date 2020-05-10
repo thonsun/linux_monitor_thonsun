@@ -129,11 +129,10 @@ func receive(r *libaudit.AuditClient) error {
 }
 
 func addRule(ruleText string,client *libaudit.AuditClient) {
-	oneRule := "-a exit,always -F auid!=-1 -F arch=b64 -S execve -S bind -k wildcat "
-	ruleExec, _ := flags.Parse(oneRule)
+	ruleExec, _ := flags.Parse(ruleText)
 	binaryRule, _ := rule.Build(ruleExec)
 	infolog("%s","failed to build rule")
 	if err := client.AddRule(binaryRule); err != nil {
-		infolog("add audit rule %+v", err)
+		infolog("add audit rule err:%+v", err)
 	}
 }
