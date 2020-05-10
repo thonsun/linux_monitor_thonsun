@@ -56,9 +56,9 @@ func read() error {
 	}
 
 	infolog("%s","start to set rules")
-	r := "-a always,exit -F arch=b64 -S all"
+	r := "-a always,exit -F arch=b64 -S connect -S recvmsg -S recvfrom -F success!=0 -k network_in"
 	addRule(r,client)
-	r = "-w /sbin/insmod -p x -k module_insertion"
+	r = "-a always,exit -F arch=b64 -S bind -S listen -S sendmsg -S sendto -F success!=0 -k network_out"
 	addRule(r,client)
 
 	infolog("%s","start to get rules")
@@ -76,6 +76,7 @@ func read() error {
 	}
 	infolog("received audit status=%+v", status)
 
+	// 开启Linux内核audit
 	if status.Enabled == 0 {
 		infolog("enabling auditing in the kernel")
 		if err = client.SetEnabled(true, libaudit.WaitForReply); err != nil {
