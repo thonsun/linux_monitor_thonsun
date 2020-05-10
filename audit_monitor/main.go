@@ -56,7 +56,7 @@ func read() error {
 	}
 
 	infolog("%s","start to set rules")
-	r := "-a always,exit -F arch=b64 -S execve"
+	r := "-a always,exit -F arch=b64 -S all"
 	addRule(r,client)
 	r = "-w /sbin/insmod -p x -k module_insertion"
 	addRule(r,client)
