@@ -79,7 +79,31 @@ func receive(r *libaudit.AuditClient) error {
 			continue
 		}
 
-		fmt.Printf("type=%#v msg=%#v\n", rawEvent.Type, string(rawEvent.Data))
+		// RawAuditMessage{
+		//		Type: auparse.AuditMessageType(msgs[0].Header.Type),
+		//		Data: msgs[0].Data,
+		//	}
+		//fmt.Printf("type=%#v msg=%#v\n", rawEvent.Type, string(rawEvent.Data))
+
+		// 接收kernel audit的消息类型：systemcall
+		switch rawEvent.Type {
+		case auparse.AUDIT_SYSCALL:
+			fmt.Printf("type=%#v %#s","SYSTEM CALL",string(rawEvent.Data))
+		case auparse.AUDIT_PATH:
+			fmt.Printf("type=%#v %#s","PATH",string(rawEvent.Data))
+		case auparse.AUDIT_SOCKETCALL:
+			fmt.Printf("type=%#v %#s","SYSTEM SOCKET",string(rawEvent.Data))
+		case auparse.AUDIT_CONFIG_CHANGE:
+			fmt.Printf("type=%#v %#s","SYSTEM CONFIG CHANGE",string(rawEvent.Data))
+		case auparse.AUDIT_CWD:
+			fmt.Printf("type=%#v %#s","CWD",string(rawEvent.Data))
+		case auparse.AUDIT_EXECVE:
+			fmt.Printf("type=%#v %#s","EXECUTE",string(rawEvent.Data))
+		case auparse.AUDIT_KERNEL_OTHER:
+			fmt.Printf("type=%#v %#s","KERNEL_OTHER",string(rawEvent.Data))
+		default:
+			continue
+		}
 	}
 }
 
