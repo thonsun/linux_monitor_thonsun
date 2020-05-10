@@ -61,6 +61,15 @@ func read() error {
 	r = "-w /sbin/insmod -p x -k module_insertion"
 	addRule(r,client)
 
+	infolog("%s","start to get rules")
+	if rules,err := client.GetRules();err != nil{
+		return errors.Wrap(err, "failed to get rules")
+	}else {
+		for _,rule := range rules{
+			infolog("audit rules:%#v\n",rule)
+		}
+	}
+
 	status, err := client.GetStatus()
 	if err != nil {
 		return errors.Wrap(err, "failed to get audit status")
