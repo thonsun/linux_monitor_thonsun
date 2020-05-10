@@ -63,6 +63,14 @@ func read() error {
 		return errors.Wrap(err, "failed to set audit PID")
 	}
 
+	if rules,err := client.GetRules();err != nil{
+		return errors.Wrap(err, "failed to get rules")
+	}else {
+		for _,rule := range rules{
+			infolog("audit rules:%#v",rule)
+		}
+	}
+	
 	return receive(client)
 }
 
