@@ -66,7 +66,7 @@ func read() error {
 		return errors.Wrap(err, "failed to get rules")
 	}else {
 		for _,rule := range rules{
-			infolog("audit rules:%#v\n",rule)
+			infolog("audit rules:%#v\n",string(rule))
 		}
 	}
 
