@@ -56,9 +56,9 @@ func read() error {
 	}
 
 	infolog("%s","start to set rules")
-	r := "-a always,exit -F arch=b64 -S connect -S recvmsg -S recvfrom -F success!=0 -k network_in"
+	r := "-a always,exit -F arch=b64 -S execve -k proc_create"
 	addRule(r,client)
-	r = "-a always,exit -F arch=b64 -S bind -S listen -S sendmsg -S sendto -F success!=0 -k network_out"
+	r = "-a always,exit arch=b64 -S bind -S listen -F success!=0 -k socket_create"
 	addRule(r,client)
 
 	infolog("%s","start to get rules")
