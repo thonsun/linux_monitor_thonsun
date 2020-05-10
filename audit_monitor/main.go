@@ -44,12 +44,23 @@ func read() error {
 	}
 	defer client.Close()
 
+	infolog("%s","start to get rules")
 	if rules,err := client.GetRules();err != nil{
 		return errors.Wrap(err, "failed to get rules")
 	}else {
 		for _,rule := range rules{
-			infolog("audit rules:%#v",rule)
+			infolog("audit rules:%#v\n",rule)
 		}
+	}
+
+	infolog("%s","start to set rules")
+	r := "-a always,exit -F arch=b64 -S execve"
+	if err := client.AddRule([]byte(r));err != nil{
+		return errors.Wrap(err,fmt.Sprintf("set rule %#v failed",r))
+	}
+	r = "-w /sbin/insmod -p x -k module_insertion"
+	if err := client.AddRule([]byte(r));err != nil{
+		return errors.Wrap(err,fmt.Sprintf("set rule %#v failed",r))
 	}
 
 	status, err := client.GetStatus()
